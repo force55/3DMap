@@ -1,0 +1,369 @@
+.user-is-logins {
+  .intro {
+    &__scene-2 {
+      display: none;
+    }
+    &__scene-1 {
+      .intro-map, .text-1, .text-2, .text-3, .text-4, .kazan {
+        display: none;
+      }
+    }
+  }
+}
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 1;
+  overflow: hidden;
+  &__scene-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url('../images/intro-2.jpg');
+    animation-name: scene1;
+    animation-duration: 1s;
+    animation-delay: 21s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+  &__scene-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url('../images/intro-bg.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: scene1;
+    animation-duration: 1s;
+    animation-delay: 14s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    .intro-map {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 699px;
+      max-width: 90vw;
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-top: 88%;
+        opacity: 0;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        background-image: url('../images/intro-map.png');
+        transform: scale(2) translate(0, 50%);
+        animation-name: map;
+        animation-duration: 10s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+      }
+    }
+    .text-1 {
+      position: relative;
+      z-index: 2;
+      margin: 0 auto 15px;
+      text-align: center;
+      font-family: $f-b-l;
+      transform-origin: 50% 50%;
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      transform: translate(0, 200%) scale(3);
+      opacity: 0;
+      color: $white;
+      text-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+      animation-name: text;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      .text-before {
+        display: inline-block;
+        vertical-align: baseline;
+        margin-right: 5px;
+        width: 0;
+        height: 2rem;
+        background-color: $accent;
+        animation-name: text1-before;
+        animation-duration: 1s;
+        animation-delay: 9s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+      }
+    }
+    .text-2 {
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      text-align: center;
+      font-family: $f-b-b;
+      font-size: 4.5rem;
+      line-height: 4.5rem;
+      transform-origin: 50% 50%;
+      transform: translate(0, 200%) scale(3);
+      opacity: 0;
+      color: $white;
+      text-shadow: 0 3px 0px rgba(0, 0, 0, 1);
+      animation-name: text;
+      animation-duration: 5s;
+      animation-delay: 3s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+    }
+    .text-3 {
+      box-sizing: border-box;
+      transform-origin: 50% 50%;
+      transform: translate(0, -100%) scale(3);
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      max-width: 50%;
+      text-align: center;
+      font-family: $f-b-b;
+      font-size: 3.5rem;
+      line-height: 3.5rem;
+      opacity: 0;
+      color: $white;
+      text-shadow: 0 3px 0px rgba(0, 0, 0, 1);
+      animation-name: text;
+      animation-duration: 4s;
+      animation-delay: 6s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+    }
+    .text-4 {
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      max-width: 50%;
+      text-align: center;
+      font-family: $f-b-r;
+      font-size: 3rem;
+      line-height: 3rem;
+      transform-origin: 50% 50%;
+      transform: translate(0, 0) scale(3);
+      opacity: 0;
+      color: $white;
+      text-shadow: 0 3px 0px rgba(0, 0, 0, 1);
+      animation-name: text;
+      animation-duration: 3s;
+      animation-delay: 7s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+    }
+    .kazan {
+      position: relative;
+      z-index: 1;
+      width: 292px;
+      margin: 0 auto 50px;
+      .codpa {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%, -15%);
+        width: 100vw;
+        max-width: 450px;
+        opacity: 0;
+        animation-name: blueblock;
+        animation-duration: 2s;
+        animation-delay: 8s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          padding-top: 100%;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          background-size: contain;
+          background-image: url('../images/codpa.png');
+        }
+      }
+      .b-blue {
+        position: absolute;
+        top: 0;
+        left: 19px;
+        right: 7px;
+        z-index: 2;
+        height: 100vh;
+        opacity: 0;
+        background-repeat: repeat-y;
+        background-size: 100% auto;
+        background-image: url('../images/blueblock-bg.png');
+        animation-name: blueblock;
+        animation-duration: 2s;
+        animation-delay: 8s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 19px;
+        right: 7px;
+        z-index: 1;
+        height: 100vh;
+        opacity: 0;
+        background-image: linear-gradient(to bottom, #132533, rgba(#132533, .5));
+        animation-name: blueblock;
+        animation-duration: 4s;
+        animation-delay: 6s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+      }
+      &:before {
+        content: '';
+        display: block;
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        padding-top: 112%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        background-image: url('../images/intro-kazan.png');
+        transform: scale(4) translate(0, 75%);
+        animation-name: kazan;
+        animation-duration: 10s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+}
+
+@keyframes text {
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes blueblock {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes kazan {
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes map {
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes text1-before {
+  100% {
+    width: 2rem;
+  }
+}
+
+@keyframes scene1 {
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .intro {
+    &__scene-1 {
+      animation-delay: 10s;
+      .text-1, .text-2, .text-3, .text-4, .text-before, .kazan, .kazan:before, .kazan:after, .kazan .codpa, .kazan .codpa:before, .kazan .b-blue, .intro-map, .intro-map:before {
+        animation: none;
+        opacity: 1;
+        margin: 0 auto;
+        transform: none;
+        height: auto;
+        line-height: normal;
+      }
+      .text-1 {
+        max-width: 100%;
+        padding: 0 5px;
+        font-size: 1.4rem;
+        .text-before {
+          animation: none;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+      .text-2, .text-3, .text-4 {
+        font-size: 1.5rem;
+        max-width: 100%;
+        padding: 0 5px;
+      }
+      .text-3 {
+        font-size: 1.4rem;
+      }
+      .text-4 {
+        font-size: 1rem;
+      }
+      .kazan {
+        max-width: 50%;
+        .b-blue, &:after {
+          height: 100vh;
+        }
+        .codpa {
+          max-width: 80vw;
+          transform: translate(-50%, -15%);
+        }
+      }
+      .intro-map {
+        max-width: 60%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .intro {
+    &__scene-2 {
+      background-image: url('../images/intro-2_mobile.jpg');
+    }
+  }
+}

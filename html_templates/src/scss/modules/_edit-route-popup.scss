@@ -1,0 +1,159 @@
+.edit-route-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  padding: 10px;
+  background-color: $dark;
+  z-index: 100;
+  color: $white;
+  max-height: 90vh;
+  overflow: auto;
+  .photo-preview {
+    width: 150px;
+    height: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    &.show-photo {
+      margin: .25rem 0;
+      height: 150px;
+    }
+  }
+  .routes-list {
+    div {
+      position: relative;
+      max-width: calc(100% - 30px);
+      margin-left: auto;
+      .remove-point-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        text-decoration: none;
+        transform: translate(-110%, -50%) rotate(45deg);
+        background-color: $dark;
+        border-radius: 50%;
+        border: 2px solid rgba($white, .5);
+        transition: all .3s ease-out;
+        &:before {
+          content: '+';
+          font-family: $f-b-r;
+          font-size: 25px;
+          position: relative;
+          top: -1px;
+          color: $white;
+        }
+        &:hover {
+          background-color: $accent;
+        }
+      }
+    }
+  }
+  .close-edit-route-popup {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    opacity: .5;
+    transition: all .3s ease-out;
+    &:before, &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      border: 1px solid $white;
+      border-radius: 3px;
+      transform-origin: 50% 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    &:hover {
+      opacity: .75;
+    }
+  }
+  * {
+    font-family: $f-b-r;
+    color: $white;
+  }
+  h4 {
+    font-family: $f-b-b;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  form {
+    margin-top: 1rem;
+  }
+  label, input, textarea, button, select {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid $white;
+    outline: none;
+    resize: vertical;
+    &[hidden] {
+      display: none;
+    }
+    option {
+      background-color: transparent;
+    }
+  }
+  audio {
+    outline: none;
+  }
+  input, textarea {
+    padding: 5px;
+    width: calc(100% - 10px);
+    &[type="checkbox"] {
+      display: inline-block;
+      width: auto;
+    }
+  }
+  select {
+    margin: 0.25rem 0;
+  }
+  textarea {
+    min-height: 5rem;
+  }
+  label {
+    border: none;
+    margin-top: .75rem;
+    margin-bottom: .25rem;
+    &.type-of-route {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+      input {
+        display: inline-block;
+        width: auto;
+      }
+    }
+  }
+  button {
+    border: none;
+    background-color: $accent;
+    margin-top: 1.5rem;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all .3s ease-out;
+    &:hover {
+      background-color: lighten($accent, 10%);
+    }
+  }
+}

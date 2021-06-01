@@ -1,0 +1,336 @@
+.list-of-ways {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  display: none;
+  counter-reset: ways-details-conter;
+  &__flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 130px);
+    padding-top: 100px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ways-container {
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    overflow: auto;
+  }
+  .way {
+    display: inline-block;
+    margin: 15px 30px;
+    width: 100%;
+    max-width: 40%;
+    background-color: rgba($white, .5);
+    padding: 15px 0;
+    transform-origin: 50% 50%;
+    transition: transform .3s ease-out;
+    counter-increment: ways-details-counter;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:nth-child(3n) {
+      display: block;
+      margin: 15px auto;
+    }
+    .types-of-route {
+      padding-top: 15px;
+      text-align: left;
+      span {
+        display: inline-block;
+        font-family: $f-b-r;
+        text-transform: lowercase;
+        color: $white;
+        font-size: 1.3rem;
+        margin-left: 1rem;
+        &:before {
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          background-size: contain;
+        }
+        &.virtual-route-icon {
+          &:before {
+            background-image: url('../images/virtual-way-ico.png');
+            width: 50px;
+            height: 30px;
+          }
+        }
+        &.real-route-icon {
+          &:before {
+            background-image: url('../images/real-way-ico.png');
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+    &__title {
+      background-image: linear-gradient(to right, $dark 60%, transparent);
+      color: $white;
+      font-family: $f-b-b;
+      font-size: 26px;
+      line-height: 26px;
+      padding: 10px 0 10px 80px;
+      position: relative;
+      text-align: left;
+      &:before {
+        content: counter(ways-details-counter);
+        display: flex;
+        width: 30px;
+        height: 30px;
+        border: 10px solid rgba($white, .5);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        font-family: $f-b-b;
+        position: absolute;
+        box-shadow: 0 0 0 5px rgba($white, .5);
+        left: 15px;
+        top: 50%;
+        z-index: 2;
+        transform: translate(0, -50%);
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-image: radial-gradient($accent, #773c0a);
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        z-index: 1;
+        box-shadow: 0 0 0 8px rgba($white, .5);
+        transform: translate(0, -50%);
+      }
+    }
+    &__content {
+      background-color: rgba($dark, .5);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      padding-top: 35%;
+      position: relative;
+      margin-top: 15px;
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        background-image: url('../images/overflow-bg.jpg');
+        opacity: .8;
+      }
+      img {
+        display: block;
+        max-width: 40%;
+        max-height: 90%;
+        height: auto;
+        min-height: 80%;
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        z-index: 2;
+        transform: translate(0, -50%);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        background-image: url(../images/default-route-img.jpg);
+      }
+      h3 {
+        text-align: right;
+        max-width: 55%;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        z-index: 2;
+        font-size: 22px;
+        font-family: $f-b-b;
+        color: $white;
+        text-shadow: 0 2px $dark;
+        span {
+          max-width: 80%;
+          font-family: $f-b-l;
+          display: block;
+          margin-left: auto;
+          font-size: 18px;
+          text-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.current-way-points {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 130px;
+  bottom: 50px;
+  z-index: 4;
+  height: auto;
+  width: 75%;
+  max-width: 320px;
+  padding-top: 15px;
+  background-color: rgba($white, .5);
+  .edit-and-add-to-favorite {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: $dark;
+    font-size: 18px;
+    line-height: 20px;
+    color: $white;
+    font-family: $f-b-b;
+    a {
+      display: block;
+      width: auto;
+      text-align: right;
+      font-size: 12px;
+      color: white;
+      line-height: 12px;
+      padding-left: 5px;
+      border-left: 1px solid $white;
+      text-decoration: none;
+    }
+    h4 {
+      text-align: center;
+      width: 100%;
+      margin-right: 5px;
+    }
+  }
+  ul {
+    padding: 0 5px;
+    max-height: 70%;
+    overflow: auto;
+    li {
+      display: block;
+      background-color: $white;
+      font-family: $f-b-r;
+      font-size: 18px;
+      line-height: 22px;
+      color: $dark;
+      padding: 0 5px;
+      transition: padding .3s ease-out, color .3s ease-out;
+      cursor: pointer;
+      margin: 5px 0;
+      &:hover, &.active {
+        color: $accent;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+#add-route-to-favorite, #edit-route, #rm-route-from-favorite {
+  font-family: $f-b-b;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 5px;
+  display: none;
+  color: $white;
+  text-decoration: none;
+}
+
+body {
+  &.user-is-logins {
+    #add-route-to-favorite {
+      display: block;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1365px) {
+  .current-way-points {
+    top: auto;
+    height: 200px;
+    bottom: 20px;
+    &__title {
+      margin-bottom: 5px;
+    }
+    ul {
+      max-height: calc(65% - 15px);
+      li {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+  }
+  .list-of-ways {
+    display: none;
+    .ways-container {
+      width: calc(100% - 30px);
+      margin-left: 30px;
+    }
+    &__flex {
+      padding-top: 40px;
+      padding-bottom: 10px;
+      height: calc(100% - 50px);
+    }
+    .way {
+      display: block;
+      margin: 5px 10px;
+      padding: 10px 0;
+      max-width: 100%;
+      width: calc(100% - 16px);
+      &__title {
+        font-size: 18px;
+        line-height: 20px;
+      }
+      .types-of-route {
+        padding-top: 10px;
+        span {
+          font-size: 1rem;
+          margin-left: .5rem;
+          &.virtual-route-icon {
+            &:before {
+              width: 30px;
+            }
+          }
+          &.real-route-icon {
+            &:before {
+              width: 17px;
+            }
+          }
+        }
+      }
+      &__content {
+        h3 {
+          font-size: 12px;
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

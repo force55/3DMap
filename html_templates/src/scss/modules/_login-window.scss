@@ -1,0 +1,136 @@
+.login-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 0;
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  transition: opacity .5s ease-out;
+  .hidden-buttons {
+    display: none;
+  }
+  &.show {
+    left: 0;
+    opacity: 1;
+    .login-window__bg {
+      transform: scale(1);
+      animation: backgroundAnimation linear 240s infinite;
+    }
+    .login-form-container {
+      transform: scale(1);
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 120% auto;
+    background-image: url('../images/overflow-bg.jpg');
+    transform: scale(1.2);
+    animation: none;
+    transition: transform .5s ease-out;
+  }
+}
+
+.login-form-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 15px);
+  max-width: 612px;
+  height: 80%;
+  max-height: 618px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  transform: scale(1.2);
+  background-image: url('../images/login-form-bg.jpg');
+  transition: transform .5s ease-out;
+  h3 {
+    display: flex;
+    justify-content: center;
+    font-size: 55px;
+    font-family: $f-b-l;
+    text-align: center;
+    max-width: 1px;
+    color: rgba($light, .35);
+    margin-bottom: 50px;
+  }
+}
+
+.login-form {
+  width: 100%;
+  max-width: 545px;
+}
+
+.enter-btn {
+  display: flex;
+  height: 37px;
+  align-items: center;
+  background-image: linear-gradient(to right, #d1d2d4, transparent);
+  background-size: 100% 100%;
+  padding: 0 44px;
+  margin: 15px 0;
+  color: $dark;
+  font-size: 21px;
+  font-family: $f-b-r;
+  text-decoration: none;
+  position: relative;
+  transition: background-size 1.5s ease-out;
+  .icon {
+    margin-right: 15px;
+  }
+  &:hover {
+    background-size: 200% 100%;
+  }
+  iframe, div {
+    position: absolute !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    z-index: 2 !important;
+  }
+}
+
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 50% 50%;
+  }
+  25% {
+    background-position: 0 50%;
+  }
+  75% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .login-form-container {
+    h3 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  }
+  .enter-btn {
+    font-size: 16px;
+  }
+}

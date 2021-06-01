@@ -1,0 +1,558 @@
+body {
+  &.user-is-logins {
+    .user-control-panel {
+      display: block;
+    }
+  }
+  &.routes-mode {
+    .user-control-panel {
+      display: none;
+    }
+  }
+}
+
+.toggle-ctrl-panel-btn {
+  display: none;
+  width: 30px;
+  height: 31px;
+  border-radius: 3px;
+  background-color: $white;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  &:before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid $accent;
+    border-radius: 3px;
+    border-right: none;
+    border-bottom: none;
+    transform-origin: 50% 50%;
+    transform: translate(-25%, -50%) rotate(-45deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all .3s ease-out;
+  }
+}
+
+.user-control-panel {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55%;
+  transform: translate(0, -50%);
+  z-index: 2;
+  width: 75%;
+  max-width: 325px;
+  background-color: rgba($white, .5);
+  height: 100%;
+  max-height: 75%;
+  padding: 0 15px;
+  &.temp-hide {
+    opacity: 0 !important;
+  }
+  h3 {
+    font-family: $f-b-l;
+    font-size: 20px;
+    line-height: 31px;
+    background-color: #591c07;
+    color: $white;
+    padding: 0 0 0 24px;
+    margin-top: 10px;
+    position: relative;
+    &:before, &:after {
+      content: '';
+      display: block;
+      width: 15px;
+      height: 100%;
+      background-color: inherit;
+      position: absolute;
+      top: 0;
+    }
+    &:before {
+      right: 100%;
+    }
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
+.favorite-routes, .user-routes {
+  margin-top: 15px;
+  h4 {
+    font-family: $f-b-b;
+    font-size: 20px;
+    line-height: 51px;
+    background-color: #5a5959;
+    color: $white;
+    position: relative;
+    padding: 0 0 0 85px;
+    &:before {
+      content: '';
+      display: block;
+      width: 91px;
+      height: 62px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      background-image: url('../images/favorite-routes-icon.png');
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+  &__list {
+    padding: 35px 25px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color: #000;
+    background-image: url('../images/overflow-bg.jpg');
+    ul {
+      counter-reset: routes-counter;
+      li {
+        margin: 11px 0;
+        padding: 0 0 0 30px;
+        position: relative;
+        counter-increment: routes-counter;
+        .edit-route {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: $dark;
+          color: $white;
+          padding: 0;
+          height: 0;
+          width: 0;
+          opacity: 0;
+          z-index: 2;
+          overflow: hidden;
+          transition: all .3s ease-out;
+        }
+        &:before {
+          content: counter(routes-counter);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background-image: radial-gradient($accent, #773c0a);
+          font-family: $f-b-b;
+          font-size: 16px;
+          color: $white;
+          position: absolute;
+          top: 50%;
+          left: 2px;
+          z-index: 2;
+          transform: translate(0, -50%);
+        }
+        &:after {
+          content: '';
+          display: block;
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background-color: rgba($white, .35);
+          position: absolute;
+          left: 0;
+          top: 50%;
+          z-index: 1;
+          transform: translate(0, -50%);
+        }
+        a {
+          display: block;
+          font-family: $f-b-r;
+          color: $white;
+          text-decoration: none;
+          font-size: 18px;
+          padding: 0;
+          transition: padding .3s ease-out;
+        }
+        &:hover {
+          a {
+            padding: 0 0 0 5px;
+            &.edit-route {
+              padding: 2px 5px;
+              width: auto;
+              height: auto;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-routes {
+  &__list {
+    ul {
+      li {
+        &:before {
+          background-image: radial-gradient(lighten($dark, 50%), $dark);
+        }
+      }
+    }
+  }
+}
+
+.user-routes {
+  h4 {
+    padding-left: 101px;
+    background-color: $dark;
+    &:before {
+      left: 0;
+      width: 93px;
+      height: 58px;
+      background-image: url('../images/user-routes.png');
+    }
+  }
+}
+
+.decorator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% + 30px);
+  margin: -30px 0 -30px -15px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.purpose-route-form {
+  &:hover, &:focus, &:active {
+    .create-route-title {
+      background-color: lighten(#591c07, 10%);
+      span {
+        &:first-child {
+          padding-left: 15px;
+        }
+        &:nth-child(2) {
+          padding-left: 50px;
+        }
+        &:last-child {
+          transform: translate(0, -70%);
+        }
+      }
+    }
+  }
+  .fields-group {
+    padding: 5px 20px 20px;
+    background-color: #591c07;
+    .selects {
+      div {
+        position: relative;
+        .remove-point-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 20px;
+          height: 20px;
+          text-decoration: none;
+          transform: translate(-50%, -50%) rotate(45deg);
+          background-color: $dark;
+          border-radius: 50%;
+          border: 2px solid rgba($white, .5);
+          transition: all .3s ease-out;
+          &:before {
+            content: '+';
+            font-family: $f-b-r;
+            font-size: 25px;
+            position: relative;
+            top: -1px;
+            color: $white;
+          }
+          &:hover {
+            background-color: $accent;
+          }
+        }
+      }
+    }
+    .add-more-point {
+      display: none;
+      text-align: center;
+      color: $white;
+      font-family: $f-b-b;
+      font-size: 18px;
+      line-height: 18px;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba($white, .75);
+      background-color: $dark;
+      text-decoration: none;
+      border-radius: 50%;
+      margin: 0 0 15px;
+      transition: all .3s ease-out;
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      & + label {
+        &:before {
+          border-color: rgba($white, .75);
+        }
+      }
+    }
+  }
+  input, select, textarea {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 0 11px;
+    margin: 15px 0;
+    border: none;
+    outline: none;
+    height: 30px;
+    font-size: 14px;
+    font-family: $f-b-r;
+    background-color: transparent;
+    color: $white;
+    background-image: linear-gradient(to right, rgba(#d3c6b4, .75), transparent);
+    background-size: 100% 100%;
+    transition: background-size 1.5s ease-out;
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $white;
+      opacity: 1;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $white;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $white;
+      opacity: 1;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $white;
+      opacity: 1;
+    }
+    &:hover, &:focus {
+      background-size: 200% 100%;
+    }
+  }
+  textarea {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    resize: vertical;
+  }
+  select {
+    width: 100%;
+    option {
+      background-color: $white;
+      color: $dark;
+    }
+  }
+  button {
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    font-family: $f-b-r;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: $white;
+    background-image: linear-gradient(to right, rgba(#d3c6b4, .75), transparent);
+    background-size: 100% 100%;
+    cursor: pointer;
+    transition: background-size 1.5s ease-out;
+    &:hover {
+      background-size: 200% 100%;
+    }
+  }
+  .info {
+    display: block;
+    background-color: $dark;
+    color: $white;
+    font-family: $f-b-r;
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 12px;
+      height: 12px;
+      border: 3px solid $dark;
+      border-radius: 50%;
+      margin-right: 10px;
+      background-image: radial-gradient(#ed8d3a, #773c0a);
+      position: relative;
+      top: -1px;
+    }
+  }
+}
+
+.create-route-title {
+  display: block;
+  margin: 10px 0;
+  padding: 27px 15px 24px;
+  background-color: #591c07;
+  color: $white;
+  text-decoration: none;
+  font-family: $f-b-r;
+  font-size: 26px;
+  text-align: center;
+  transition: background-color .3s ease-out;
+  span {
+    text-align: left;
+    display: inline-block;
+    transition: all .3s ease-out;
+    &:first-child {
+      width: 100%;
+    }
+    &:nth-child(2) {
+      font-family: $f-b-l;
+      font-size: 24px;
+      padding-left: 72px;
+    }
+    &:last-child {
+      transform: translate(0, -40%);
+    }
+  }
+}
+
+.create-object-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 84px;
+  margin: 10px 0;
+  font-family: $f-b-r;
+  font-size: 26px;
+  text-decoration: none;
+  color: $white;
+  background-color: $dark;
+  transition: background-color .3s ease-out;
+  &:hover {
+    background-color: lighten($dark, 10%);
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .toggle-ctrl-panel-btn {
+    display: block;
+  }
+  .user-control-panel {
+    max-width: 30px;
+    overflow: hidden;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    background-color: transparent;
+    * {
+      visibility: hidden;
+    }
+    .toggle-ctrl-panel-btn {
+      visibility: visible;
+    }
+    &.show {
+      padding: 10px 15px;
+      max-width: 325px;
+      overflow: auto;
+      background-color: rgba($white, .5);
+      .toggle-ctrl-panel-btn {
+        left: -15px;
+        &:before {
+          transform: scaleX(-1) translate(75%, -50%) rotate(-45deg);
+        }
+      }
+      * {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .purpose-route-form {
+    display: none;
+  }
+  .user-control-panel {
+    h3 {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+  .favorite-routes {
+    h4 {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    &__list {
+      padding: 15px 5px;
+      ul {
+        li {
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  .user-routes {
+    &__list {
+      padding: 15px 5px;
+      ul {
+        li {
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    h4 {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+  .create-route-title {
+    font-size: 18px;
+    span {
+      &:last-child {
+        transform: translate(0, -10%);
+      }
+    }
+  }
+  .purpose-route-form {
+    .fields-group {
+      padding: 5px;
+    }
+    &:focus, &:hover {
+      .create-route-title {
+        span {
+          &:last-child {
+            transform: translate(0, -20%);
+          }
+        }
+      }
+    }
+  }
+  .create-object-btn {
+    display: none;
+  }
+  .decorator {
+    display: none;
+  }
+}

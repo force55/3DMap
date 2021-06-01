@@ -1,0 +1,278 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.inform-window {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  background-color: rgba($white, .9);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-family: $f-b-b;
+  color: $dark;
+  font-size: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto;
+    font-size: 18px;
+    color: $white;
+    background-color: $dark;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+  }
+}
+
+.container {
+  width: calc(100% - 48px);
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.load-info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: $f-b-b;
+}
+
+body.widget_frame_base {
+  width: 100% !important;
+}
+
+.tgme_widget_login.small button.tgme_widget_login_button {
+  width: 100% !important;
+  height: 37px !important;
+}
+
+@media sceen and (min-width: 1365px) {
+  * {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $accent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $white;
+      border: 2px solid $accent;
+    }
+  }
+}
+
+select {
+  option {
+    color: $dark !important;
+  }
+}
+
+#remove-route {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  height: 30px;
+  margin-top: .5rem;
+  background-color: $dark;
+  border: 1px solid $white;
+  color: $white;
+  font-family: $f-b-r;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-content {
+  height: 100%;
+}
+
+.unactive-marker {
+  white-space: nowrap;
+  font-size: 18px;
+  background-color: $dark;
+  color: $white;
+  padding: 10px 15px;
+  font-family: $f-b-b;
+}
+
+.sky-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-image: url('../images/overflow-bg.jpg');
+  opacity: 0.75;
+}
+
+.global-audio {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: $dark;
+  z-index: 200;
+  padding: 3px;
+  border-radius: 30px;
+  audio {
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    outline: none;
+  }
+  .close {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    position: relative;
+    background-color: rgba($white, .5);
+    border-radius: 50%;
+    transition: all .3s ease-out;
+    &:before, &:after {
+      content: '';
+      display: block;
+      width: 20px;
+      border: 1px solid $white;
+      border-radius: 3px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: all .3s ease-out;
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    &:hover {
+      background-color: $white;
+      &:after, &:before {
+        border-color: $dark;
+      }
+    }
+  }
+}
+
+.help-info {
+  position: fixed;
+  z-index: 2;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: .5;
+  transition: opacity .3s ease-out;
+  cursor: default;
+  user-select: none;
+  &:hover {
+    opacity: 1;
+  }
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1rem;
+    font-family: $f-b-r;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    color: $white;
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 1366px) {
+    display: none;
+  }
+}
+
+#logout {
+  display: none;
+}
+
+#add-route-to-favorite {
+  display: none;
+}
+
+.user-is-logins {
+  #logout {
+    display: flex;
+  }
+  #add-route-to-favorite {
+    display: block;
+  }
+}
+
+.way__content {
+  img {
+    display: block;
+    width: 100%;
+    min-height: 200px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      background-image: url('../images/default-route-img.jpg');
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  &--email {
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/login-email-icon.png');
+  }
+  &--facebook {
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/login-facebook-icon.png');
+  }
+  &--telegram {
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/login-telegram-icon.png');
+  }
+}
+
+b, strong {
+  font-family: $f-b-b;
+}
+
+@media screen and (max-width: 1366px) {
+  .container {
+    width: calc(100% - 30px);
+  }
+}

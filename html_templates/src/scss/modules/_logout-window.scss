@@ -1,0 +1,123 @@
+.logout-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    opacity: 0;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    transition: opacity .5s ease-out;
+    .hidden-buttons {
+      display: none;
+    }
+    &.show {
+      left: 0;
+      opacity: 1;
+      width: 100%;
+      .logout-window__bg {
+        transform: scale(1);
+        animation: backgroundAnimation linear 240s infinite;
+      }
+      .login-form-container {
+        transform: scale(1);
+      }
+    }
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 120% auto;
+      background-image: url('../images/overflow-bg.png');
+      transform: scale(1.2);
+      animation: none;
+      transition: transform .5s ease-out;
+    }
+  }
+  
+  .logout-form-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 15px);
+    max-width: 612px;
+    height: 80%;
+    max-height: 618px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    transform: scale(1.2);
+    background-image: url('../images/login-form-bg.png');
+    transition: transform .5s ease-out;
+    h3 {
+      display: flex;
+      justify-content: center;
+      font-size: 55px;
+      font-family: $f-b-l;
+      text-align: center;
+      max-width: 1px;
+      color: rgba($light, .35);
+      margin-bottom: 50px;
+    }
+  }
+  
+  .logout-form {
+    width: 100%;
+    max-width: 545px;
+    .enter-btn {
+        justify-content: center;
+        font-size: 32px;
+        text-align: center;
+        height: initial;
+        padding: 10px 44px;
+     }
+  }
+  
+
+  
+  
+  @keyframes backgroundAnimation {
+    0% {
+      background-position: 50% 50%;
+    }
+    25% {
+      background-position: 0 50%;
+    }
+    75% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 50% 50%;
+    }
+  }
+  
+  @media screen and (max-width: 780px) {
+    .logout-form {
+        width: 100%;
+        max-width: 545px;
+        &-container {
+            h3 {
+              font-size: 40px;
+              margin-bottom: 20px;
+            }
+        }
+        .enter-btn {
+            font-size: 22px;
+            height: initial;
+            padding: 10px 44px;
+         }
+      }
+  }
+  

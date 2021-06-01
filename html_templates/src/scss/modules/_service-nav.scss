@@ -1,0 +1,101 @@
+.service-nav {
+  position: relative;
+  z-index: 10;
+  width: 76px;
+  height: 100%;
+  background-color: rgba(#f7f3e1, .34);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ul {
+    padding: 40px 0;
+    margin: 0;
+    list-style: none;
+    &.sponsors {
+      padding: 0 0 40px;
+      img {
+        display: block;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+    }
+    li {
+      display: block;
+      margin: 0 0 20px;
+      &:last-child {
+        margin-top: 10px;
+      }
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 58px;
+        height: 58px;
+        padding: 5px;
+        margin: 0 auto;
+        background-color: transparent;
+        transition: background-color .3s ease-out;
+        img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          transform-origin: 50% 50%;
+          transform: scale(1);
+          transition: transform .3s ease-out, opacity .3s ease-out;
+        }
+        &:hover, &.active {
+          background-color: #f97e14;
+          img {
+            transform: scale(0.8);
+          }
+        }
+        &.filter-3d-btn {
+          position: relative;
+          img {
+            opacity: 1;
+            &:last-child {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              opacity: 0;
+              max-width: calc(100% - 10px);
+            }
+          }
+          &:hover, &.active {
+            background-color: transparent;
+            img {
+              transform: scale(1);
+              &:first-child {
+                opacity: 0;
+              }
+              &:last-child {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .service-nav {
+    width: 40px;
+    ul {
+      padding: 10px 0;
+      li {
+        a {
+          width: 30px;
+          height: 30px;
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

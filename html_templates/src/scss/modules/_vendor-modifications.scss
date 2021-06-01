@@ -1,0 +1,19 @@
+.slick-slider, .slick-slider * {
+  outline: none;
+}
+
+
+.simplebar-track {
+  background-color: #fff;
+}
+.simplebar-scrollbar {
+  &:before {
+    background-color: $accent;
+    opacity: 1;
+  }
+  &.simplebar-visible {
+    &:before {
+      opacity: 1;
+    }
+  }
+}

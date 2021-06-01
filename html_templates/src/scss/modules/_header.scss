@@ -1,0 +1,228 @@
+.header {
+  top: 40px;
+  right: 0;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: 5;
+}
+
+.burger-btn {
+  display: none;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin-left: auto;
+  span, &:before, &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    border: 1px solid $white;
+    border-radius: 3px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    transition: all .3s ease-out;
+  }
+  span {
+    top: 50%;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    top: 100%;
+  }
+  &.active {
+    span {
+      opacity: 0;
+    }
+    &:before, &:after {
+      top: 50%;
+    }
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+.main-nav {
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+    li {
+      margin: 0 0 0 15px;
+      a {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        text-decoration: none;
+        font-family: $f-b-b;
+        color: $white;
+        font-size: 14px;
+        transform-origin: 50% 100%;
+        transition: transform .3s ease-out;
+        span {
+          display: inline-block;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          background-color: rgba($dark, .75);
+          transform: translate(-50%, 0);
+          white-space: nowrap;
+          padding: 4px 5px;
+          border-radius: 3px;
+          opacity: 0;
+          pointer-events: none;
+          transition: all .3s ease-out;
+        }
+        &:hover {
+          transform: scale(1.2);
+          span {
+            transform: translate(-50%, 50%);
+            opacity: 1;
+          }
+        }
+      }
+      &:nth-child(1) {
+        a {
+          background-image: url('../images/nav-icon-1.png');
+          &:hover {
+            background-image: url('../images/nav-icon-1-active.png');
+          }
+        }
+      }
+      &:nth-child(2) {
+        a {
+          background-image: url('../images/nav-icon-2.png');
+          &:hover {
+            background-image: url('../images/nav-icon-2-active.png');
+          }
+        }
+      }
+      &:nth-child(3) {
+        a {
+          background-image: url('../images/nav-icon-3.png');
+          &:hover {
+            background-image: url('../images/nav-icon-3-active.png');
+          }
+        }
+      }
+      &:nth-child(4) {
+        a {
+          background-image: url('../images/nav-icon-4.png');
+          &:hover {
+            background-image: url('../images/nav-icon-4-active.png');
+          }
+        }
+      }
+      &:nth-child(5) {
+        a {
+          background-image: url('../images/nav-icon-5.png');
+          &:hover {
+            background-image: url('../images/nav-icon-5-active.png');
+          }
+        }
+      }
+      &:nth-child(6) {
+        a {
+          background-image: url('../images/nav-icon-6.png');
+          background-size: 83%;
+          &:hover {
+            background-image: url('../images/nav-icon-6-active.png');
+          }
+        }
+      }
+      &:nth-child(7) {
+        a {
+          background-image: url('../images/nav-icon-7.png');
+          background-size: 74%;
+          &:hover {
+            background-image: url('../images/nav-icon-7-active.png');
+          }
+        }
+      }
+      &:nth-child(8) {
+        a {
+          background-image: url('../images/nav-icon-8.png');
+          background-size: 85%;
+          &:hover {
+            background-image: url('../images/nav-icon-8-active.png');
+          }
+        }
+      }
+      &:nth-child(9) {
+        a {
+          background-image: url('../images/nav-icon-9.png');
+          &:hover {
+            background-image: url('../images/nav-icon-9-active.png');
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1365px) {
+  .header {
+    top: 10px;
+  }
+  .burger-btn {
+    display: block;
+    &.active {
+      & + ul {
+        display: flex;
+      }
+    }
+  }
+  .main-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    ul {
+      display: none;
+      flex-direction: column;
+      li {
+        a {
+          &:after {
+            content: '';
+            display: block;
+            width: 50vw;
+            position: absolute;
+            top: 0;
+            right: 100%;
+            height: 100%;
+          }
+          width: 30px !important;
+          height: 30px !important;
+          span {
+            opacity: 1;
+            top: 50%;
+            left: 0;
+            transform: translate(-100%, -50%);
+          }
+          &:hover {
+            span {
+              opacity: 1;
+              top: 50%;
+              left: 0;
+              transform: translate(-100%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

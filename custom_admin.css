@@ -1,0 +1,20 @@
+#major-publishing-actions input, #minor-publishing-actions .preview, #minor-publishing-actions input{
+    width: 100%;
+}
+
+#publishing-action input[type="submit"]{
+    width: fit-content;
+    width: -moz-fit-content;
+}
+
+#screen-meta-links .show-settings{
+    display: none;
+}
+
+#wpfooter{
+    display: none;
+}
+
+#wp-admin-bar-new-content{
+    display: none;
+}
